@@ -20,6 +20,6 @@ class Spree::AmazonCallbackController < ApplicationController
         l.save
       end
     end
-    render nothing: true
+    head :ok, content_type: 'text/html'
   end
 end

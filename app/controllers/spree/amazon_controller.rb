@@ -125,7 +125,7 @@ class Spree::AmazonController < Spree::StoreController
   end
 
   def load_amazon_mws
-    render nothing: true, status: 200 if current_order.amazon_order_reference_id.nil?
+    head :ok, content_type: 'text/html' if current_order.amazon_order_reference_id.nil?
     @mws ||= AmazonMws.new(current_order.amazon_order_reference_id, Spree::Gateway::Amazon.first.preferred_test_mode)
   end
 
